@@ -1,1 +1,127 @@
-# trabalho.addEventListener
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade: addEventListener em JavaScript po ana beatriz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #0066cc;
+        }
+
+        /* Estilo para o código */
+        pre {
+            background-color: #eef;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        /* Estilo do botão e texto */
+        #colorButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #colorButton:hover {
+            background-color: #004999;
+        }
+
+        #textExample {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Entendendo o addEventListener em JavaScript</h1>
+    </header>
+
+    <section>
+        <h2>O que é o addEventListener?</h2>
+        <p>
+            O <strong>addEventListener</strong> é um método utilizado em JavaScript para registrar funções que serão executadas quando um evento específico ocorrer em um elemento HTML, como cliques, movimentos do mouse, teclas pressionadas, entre outros. Ele permite que você adicione múltiplos ouvintes de evento a um mesmo elemento, facilitando a manipulação interativa de páginas web.
+        </p>
+
+        <h2>Exemplo básico de uso</h2>
+        <p>Vamos criar um botão que, ao ser clicado, muda a cor de um texto na página.</p>
+
+        <!-- Elementos visuais -->
+        <button id="colorButton">Clique aqui para mudar a cor do texto</button>
+        <div id="textExample">Este texto vai mudar de cor ao clicar no botão.</div>
+
+        <!-- Código JavaScript -->
+        <h2>Código JavaScript com addEventListener</h2>
+        <pre><code>
+const button = document.getElementById('colorButton');
+const text = document.getElementById('textExample');
+
+const colors = ['red', 'blue', 'green', 'purple'];
+let currentColorIndex = 0;
+
+button.addEventListener('click', () => {
+    // Muda para a próxima cor na lista
+    currentColorIndex = (currentColorIndex + 1) % colors.length;
+    text.style.color = colors[currentColorIndex];
+});
+        </code></pre>
+    </section>
+
+    <script>
+        // Seleciona os elementos pelo ID
+        const button = document.getElementById('colorButton');
+        const text = document.getElementById('textExample');
+
+        // Lista de cores
+        const colors = ['red', 'blue', 'green', 'purple'];
+        let currentColorIndex = 0;
+
+        // Adiciona o evento de clique
+        button.addEventListener('click', () => {
+            // Atualiza o índice para o próximo elemento, ciclando de volta ao início
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            // Aplica a nova cor ao texto
+            text.style.color = colors[currentColorIndex];
+        });
+    </script>
+</body>
+</html>
